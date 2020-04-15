@@ -1,12 +1,12 @@
-import { Type } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { Type } from "@angular/core";
+import { TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { HTTP_INTERCEPTORS, HttpClient } from "@angular/common/http";
 
-import { environment } from '@env/environment';
-import { ApiPrefixInterceptor } from './api-prefix.interceptor';
+import { environment } from "@env/environment";
+import { ApiPrefixInterceptor } from "./api-prefix.interceptor";
 
-describe('ApiPrefixInterceptor', () => {
+describe("ApiPrefixInterceptor", () => {
   let http: HttpClient;
   let httpMock: HttpTestingController;
 
@@ -30,19 +30,19 @@ describe('ApiPrefixInterceptor', () => {
     httpMock.verify();
   });
 
-  it('should prepend environment.serverUrl to the request url', () => {
+  it("should prepend environment.serverUrl to the request url", () => {
     // Act
-    http.get('/toto').subscribe();
+    http.get("/api/students").subscribe();
 
     // Assert
-    httpMock.expectOne({ url: environment.serverUrl + '/toto' });
+    httpMock.expectOne({ url: environment.serverUrl + "/api/students" });
   });
 
-  it('should not prepend environment.serverUrl to request url', () => {
+  it("should not prepend environment.serverUrl to request url", () => {
     // Act
-    http.get('hTtPs://domain.com/toto').subscribe();
+    http.get("hTtPs://domain.com/api").subscribe();
 
     // Assert
-    httpMock.expectOne({ url: 'hTtPs://domain.com/toto' });
+    httpMock.expectOne({ url: "hTtPs://domain.com/api" });
   });
 });
