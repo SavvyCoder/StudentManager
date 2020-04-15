@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1>
+      <span translate>Student Records</span>
+    </h1>
+    <app-search (search)="managerStore.makeSearch($event)"></app-search>
+  </div>
+  <div class="student-container">
+    <app-loader [isLoading]="isLoading"></app-loader>
+    <app-student
+      [hidden]="isLoading || managerStore._studentDetails"
+      *ngFor="let student of managerStore._filteredStudents"
+      [student]="student"
+      (getDetails)="managerStore.transitionDetails($event)"
+    ></app-student>
+    <app-student-details *ngIf="managerStore._studentDetails" [student]="managerStore._studentDetails">
+    </app-student-details>
+    <div [hidden]="managerStore._query">
+      Students can be searched by first name, last name, or both
+    </div>
+    <div [hidden]="managerStore._filteredStudents || !managerStore._query">
+      There are no students that meet that criteria
+    </div>
+  </div>
+</div>

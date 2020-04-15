@@ -1,0 +1,17 @@
+<div class="search-container">
+  <mat-form-field class="search-form-field">
+    <div class="search-input-wrapper">
+      <input
+        matInput
+        type="text"
+        class="search-input"
+        [(ngModel)]="value"
+        placeholder="Search for student records"
+        (keyup.enter)="search.emit(value)"
+      />
+      <button class="search-btn" mat-button matSuffix mat-icon-button aria-label="Clear">
+        <mat-icon (click)="search.emit(value)">search</mat-icon>
+      </button>
+    </div>
+  </mat-form-field>
+</div>
