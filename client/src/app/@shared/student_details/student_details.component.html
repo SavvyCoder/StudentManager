@@ -1,1 +1,22 @@
-<div class="student-details-container">{{ student.email }}</div>
+<!-- <div class="student-details-container">{{ student.email }}</div> -->
+<div class="container">
+  <div class="col-sm-12">
+    <h2>{{ student.first }} {{ student.last }}</h2>
+    <div><strong>Email: </strong> {{ student.email }}</div>
+    <p>
+      <strong>GPA - {{ student.average }} </strong>
+      <span *ngFor="let i of loopAverage" class="fa fa-star"></span>
+      <span *ngIf="partialStar" class="fa fa-star" [ngStyle]="partialStarStyles()"></span>
+    </p>
+    <div>
+      <div class="col-sm-5 col-md-6 inline-block"><strong>Classes: </strong></div>
+      <div class="col-sm-4 col-md-4 inline-block"><strong>Grades: </strong></div>
+      <div class="student-class" *ngFor="let class of student.studentClasses">
+        <div class="col-sm-5 col-md-6 inline-block class-emphasis">{{ classMap[class.id] }}</div>
+        <div class="col-sm-4 col-md-4 inline-block text-center" [style.color]="class.grade < 2 ? 'red' : 'black'">
+          {{ class.grade }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

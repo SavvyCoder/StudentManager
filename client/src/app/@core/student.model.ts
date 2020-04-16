@@ -3,9 +3,10 @@ export interface Student {
   last: string;
   email: string;
   studentClasses: StudentClass[];
+  average?: number;
 }
 
-interface StudentClass {
+export interface StudentClass {
   id: number;
   grade: number;
 }

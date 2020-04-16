@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { Student } from "@core/student.model";
+import { ClassMap, Student } from "@app/@core";
 /**
  * @title Input with a clear button
  */
@@ -10,7 +10,23 @@ import { Student } from "@core/student.model";
 })
 export class StudentDetailsComponent implements OnInit {
   @Input() student: Student;
+  @Input() classMap: ClassMap;
   @Output() returnToSearch = new EventEmitter<boolean>();
+
+  loopAverage: number[]; 
+  partialStar: number;
+  partialStarStyles: () => {};
+
   constructor() {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.partialStar = this.student.average % 1;
+    this.partialStarStyles = () => ({
+      background: `-webkit-linear-gradient(left, #f1c40f ${100 * this.partialStar}%, white ${
+        (1 - this.partialStar) * 100
+      }%)`,
+      "-webkit-text-fill-color": "transparent",
+      "-webkit-background-clip": "text",
+    });
+    this.loopAverage = Array(Math.floor(this.student.average));
+  }
 }

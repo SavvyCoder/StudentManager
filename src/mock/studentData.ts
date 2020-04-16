@@ -1,5 +1,5 @@
 export const getAllStudentData = () => ({
-  status: "Ok",
+  status: "ok",
   data: [
     {
       first: "John",

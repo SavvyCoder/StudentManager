@@ -1,7 +1,19 @@
-.logo {
-  width: 100px;
+.app-heading {
+  background-color: #515585;
+  color: white;
 }
 
 .student-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.student-list {
+  padding: 10px;
+  margin: 10px;
+  display: grid;
+  grid-gap: 10px;
+  width: 200px;
   text-align: center;
 }

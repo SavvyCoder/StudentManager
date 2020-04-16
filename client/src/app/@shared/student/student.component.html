@@ -1,1 +1,6 @@
-<div class="student-container" (click)="getDetails.emit(student)">{{ student.first }} {{ student.last }}</div>
+<div class="items-body-content" (click)="getDetails.emit(student)">
+  <div>
+    {{ student.first }} {{ student.last }}
+    <div>{{ student.average }}</div>
+  </div>
+</div>

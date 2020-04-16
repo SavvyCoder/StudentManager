@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="jumbotron text-center">
+  <div class="jumbotron text-center app-heading">
     <h1>
       <span translate>Student Records</span>
     </h1>
@@ -7,18 +7,24 @@
   </div>
   <div class="student-container">
     <app-loader [isLoading]="isLoading"></app-loader>
-    <app-student
-      [hidden]="isLoading || managerStore._studentDetails"
-      *ngFor="let student of managerStore._filteredStudents"
-      [student]="student"
-      (getDetails)="managerStore.transitionDetails($event)"
-    ></app-student>
-    <app-student-details *ngIf="managerStore._studentDetails" [student]="managerStore._studentDetails">
+    <div class="student-list" *ngIf="!isLoading && managerStore._filteredStudents && !managerStore._studentDetails">
+      <app-student
+        [hidden]="isLoading || managerStore._studentDetails"
+        *ngFor="let student of managerStore._filteredStudents"
+        [student]="student"
+        (getDetails)="managerStore.transitionDetails($event)"
+      ></app-student>
+    </div>
+    <app-student-details
+      *ngIf="managerStore._studentDetails"
+      [student]="managerStore._studentDetails"
+      [classMap]="managerStore.classData"
+    >
     </app-student-details>
-    <div [hidden]="managerStore._query">
+    <div [hidden]="isLoading || managerStore._query">
       Students can be searched by first name, last name, or both
     </div>
-    <div [hidden]="managerStore._filteredStudents || !managerStore._query">
+    <div [hidden]="isLoading || managerStore._filteredStudents || !managerStore._query">
       There are no students that meet that criteria
     </div>
   </div>

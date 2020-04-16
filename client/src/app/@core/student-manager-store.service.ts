@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { Student } from './student.model';
-import { ClassMap } from './class.model';
+import { Injectable } from "@angular/core";
+import { Student, StudentClass } from "./student.model";
+import { ClassMap } from "./class.model";
 
 type StudentData = Student[] | [];
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class StudentManagerStoreService {
   _studentData: StudentData = [];
 
   _studentDetails: Student | null = null;
-  _query = '';
+  _query = "";
 
   _classData: ClassMap = {};
 
@@ -56,14 +56,28 @@ export class StudentManagerStoreService {
   }
 
   initStudentData(studentData: Student[]) {
-    this.studentData = studentData;
+    this.studentData = studentData.map((student)=> (
+      {
+        ...student,
+        average: this.calcStudentAverage(student.studentClasses)
+      }
+    ));
   }
 
   initClassData(classData: ClassMap) {
     this.classData = classData;
   }
 
-  private sanitizeQuery = (query: string) => query.toLowerCase().replace(/\s/g, '');
+  private sanitizeQuery = (query: string) => query.toLowerCase().replace(/\s/g, "");
+
+  private calcStudentAverage = (studentClasses: StudentClass[]): number => 
+    studentClasses.reduce((acc, _class, i, _classes) => {
+      if(i === _classes.length-1){
+        return acc = Number((acc/_classes.length).toFixed(2));
+      }
+      return acc += _class.grade;
+    },0);
+  
 
   makeSearch(query: string) {
     this.transitionDetails(null);
@@ -71,7 +85,7 @@ export class StudentManagerStoreService {
     //If no query clear filteredResults and set class query to default
     if (!query) {
       this.filteredStudents = null;
-      this.query = '';
+      this.query = "";
       return;
     }
 

@@ -1,11 +1,12 @@
-export interface Student{
+export interface Student {
     first: string;
     last: string;
     email: string;
     studentClasses: StudentClass[];
+    average?: number;
 }
 
-interface StudentClass {
+export interface StudentClass {
     id: number;
     grade: number; 
 }
