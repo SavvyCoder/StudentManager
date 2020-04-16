@@ -1,15 +1,13 @@
-import { Type } from "@angular/core";
-import { TestBed, async } from "@angular/core/testing";
-import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { Type } from '@angular/core';
+import { TestBed, async } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { CoreModule } from "@core";
-import { StudentService, AllStudentRes } from "./student.service";
-import { Student } from "./student.model";
-import { Observable, PartialObserver } from "rxjs";
+import { CoreModule } from '@core';
+import { StudentService, AllStudentRes } from './student.service';
+import { Student } from './student.model';
+import { Observable, PartialObserver } from 'rxjs';
 
-
-
-describe("Student Service", () => {
+describe('Student Service', () => {
   let studentService: StudentService;
   let httpMock: HttpTestingController;
 
@@ -27,10 +25,10 @@ describe("Student Service", () => {
     httpMock.verify();
   });
 
-  describe("get all students", () => {
-    it("should return all students in DB", () => {
+  describe('get all students', () => {
+    it('should return all students in DB', () => {
       // Arrange
-      const mockStatus = "ok";
+      const mockStatus = 'ok';
 
       // Act
       const studentsSubscription = studentService.getAllStudentData({}, true);

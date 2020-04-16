@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { Student } from "./student.model";
-import { ClassMap } from "./class.model";
+import { Injectable } from '@angular/core';
+import { Student } from './student.model';
+import { ClassMap } from './class.model';
 
 type StudentData = Student[] | [];
 
-@Injectable({ providedIn: "root" })
+@Injectable({ providedIn: 'root' })
 export class StudentManagerStoreService {
   _studentData: StudentData = [];
 
   _studentDetails: Student | null = null;
-  _query = "";
+  _query = '';
 
   _classData: ClassMap = {};
 
@@ -31,8 +31,8 @@ export class StudentManagerStoreService {
     return this._query;
   }
 
-  set studentDetails(student: Student | null){
-    this._studentDetails = student; 
+  set studentDetails(student: Student | null) {
+    this._studentDetails = student;
   }
 
   get studentDetails(): Student | null {
@@ -63,16 +63,15 @@ export class StudentManagerStoreService {
     this.classData = classData;
   }
 
-  private sanitizeQuery = (query: string) => query.toLowerCase().replace(/\s/g, "");
+  private sanitizeQuery = (query: string) => query.toLowerCase().replace(/\s/g, '');
 
   makeSearch(query: string) {
-
     this.transitionDetails(null);
 
     //If no query clear filteredResults and set class query to default
     if (!query) {
       this.filteredStudents = null;
-      this.query = "";
+      this.query = '';
       return;
     }
 
@@ -96,7 +95,7 @@ export class StudentManagerStoreService {
     }
   }
 
-  transitionDetails(details: Student | null){
+  transitionDetails(details: Student | null) {
     this.studentDetails = details;
   }
 }

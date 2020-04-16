@@ -42,7 +42,7 @@ describe('ErrorHandlerInterceptor', () => {
     spyOn(ErrorHandlerInterceptor.prototype as any, 'errorHandler').and.callThrough();
 
     // Act
-    http.get('/toto').subscribe(
+    http.get('/api.students').subscribe(
       () => fail('should error'),
       () => {
         // Assert

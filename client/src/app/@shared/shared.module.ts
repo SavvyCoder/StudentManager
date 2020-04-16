@@ -11,7 +11,7 @@ import { FormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [CommonModule, MaterialModule, FormsModule],
-  declarations: [LoaderComponent, SearchComponent,StudentComponent, StudentDetailsComponent],
+  declarations: [LoaderComponent, SearchComponent, StudentComponent, StudentDetailsComponent],
   exports: [LoaderComponent, SearchComponent, StudentComponent, StudentDetailsComponent],
   providers: [
     {

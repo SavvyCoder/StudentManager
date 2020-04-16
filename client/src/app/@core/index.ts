@@ -4,3 +4,8 @@ export * from './http/error-handler.interceptor';
 export * from './route-reusable-strategy';
 export * from './logger.service';
 export * from './until-destroyed';
+export * from './class.model';
+export * from './student.model';
+export * from './class.service';
+export * from './student.service';
+export * from './student-manager-store.service';
