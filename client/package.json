@@ -1,5 +1,5 @@
 {
-  "name": "ng-x-rocket",
+  "name": "student-manager-client",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -75,7 +75,7 @@
     "typescript": "~3.8.3"
   },
   "prettier": {
-    "singleQuote": true,
+    "singleQuote": false,
     "overrides": [
       {
         "files": "*.scss",

@@ -1,10 +1,10 @@
 {
-  "name": "github-search-api",
+  "name": "student-manager-api",
   "version": "1.0.0",
   "description": "A simple API for github search",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SavvyCoder/GithubSearch.git"
+    "url": "https://github.com/SavvyCoder/StudentManager.git"
   },
   "author": "Savinda Gunawardena",
   "license": "MIT",
