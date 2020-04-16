@@ -25,7 +25,8 @@ describe("Student Component", () => {
       studentClasses: [{
         id: 1,
         grade: 1
-      }]
+      }],
+      average: 1
     };
     component.student = student;
     fixture.detectChanges();

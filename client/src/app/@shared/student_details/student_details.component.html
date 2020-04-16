@@ -5,7 +5,7 @@
     <div><strong>Email: </strong> {{ student.email }}</div>
     <p>
       <strong>GPA - {{ student.average }} </strong>
-      <span *ngFor="let i of loopAverage" class="fa fa-star"></span>
+      <span *ngFor="let i of loopAverage" class="fa fa-star" [style.color]="'#f1c40f'"></span>
       <span *ngIf="partialStar" class="fa fa-star" [ngStyle]="partialStarStyles()"></span>
     </p>
     <div>
