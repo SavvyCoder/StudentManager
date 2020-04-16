@@ -12,9 +12,6 @@ export class StudentComponent implements OnInit {
   @Input() student: Student;
   @Output() getDetails = new EventEmitter<Student>();
 
-  // partialStarColorStyle = {
-  //   "color": `-linear-gradient(left, grey 25%, white 75%);`
-  // }
   constructor() {}
   ngOnInit() {}
 }

@@ -19,7 +19,9 @@ export class StudentDetailsComponent implements OnInit {
 
   constructor() {}
   ngOnInit() {
+    //If our student as a non int GPA get the trailing float
     this.partialStar = this.student.average % 1;
+    //Set partial fill color on the nth star using partial star float
     this.partialStarStyles = () => ({
       background: `-webkit-linear-gradient(left, #f1c40f ${100 * this.partialStar}%, white ${
         (1 - this.partialStar) * 100
@@ -27,6 +29,7 @@ export class StudentDetailsComponent implements OnInit {
       "-webkit-text-fill-color": "transparent",
       "-webkit-background-clip": "text",
     });
+    //convert our GPA to an array so we can loop the number of stars
     this.loopAverage = Array(Math.floor(this.student.average));
   }
 }
