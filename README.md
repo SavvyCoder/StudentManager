@@ -2,7 +2,7 @@
 
 ## What it does
 
-A simple Express-Angular-Node application that enables traversal through mock student data with a barebones interface.
+A very simple Express-Angular-Node application that enables traversal through mock student data with a barebones interface. Built on a enterprise grade client boilerplate ngx-rocket with full test coverage. Looking to add features when I get time (adding a dockerized mongoDB instance).Thanks for stopping by! 
 
 ## Getting Started
 
@@ -12,6 +12,8 @@ This will install all dependencies, run type-checking, build server files and th
 I have commited my .env (all it has is the port config) to avoid any initial port conflict errors (could have passed it as a script param but prefer this solution as having a .env boilerplate is nice), feel free to customize to your liking.
 
 ## Useful scripts
+
+*Run 'npm run first' to quickly get started*
 
 1. npm run start - this will simulteneously run both client and express server.
 2. npm run test - this will intiate and run both testing suites for server and client.
